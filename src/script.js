@@ -5,12 +5,12 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import typefaceFont from "/fonts/helvetiker_regular.typeface.json?url";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
-console.log(typefaceFont);
+// console.log(typefaceFont);
 /**
  * Base
  */
 // Debug
-const gui = new GUI();
+// const gui = new GUI();
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -60,9 +60,9 @@ fontLoader.load(typefaceFont, (font) => {
   //   textGeometry.computeBoundingBox();
   textGeometry.center();
 
-  const axesHelper = new THREE.AxesHelper();
-  text.add(axesHelper);
-  scene.add(text);
+  // const axesHelper = new THREE.AxesHelper();
+  // text.add(axesHelper);
+  // scene.add(text);
 });
 
 // Add torus'
@@ -149,9 +149,6 @@ const tick = () => {
   camera.position.z += Math.cos(elapsedTime) * 0.001;
   // Update controls
   controls.update();
-
-  // Update stats
-  stats.update();
 
   // Render
   renderer.render(scene, camera);
