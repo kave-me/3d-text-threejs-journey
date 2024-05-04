@@ -62,7 +62,7 @@ fontLoader.load(typefaceFont, (font) => {
 
   // const axesHelper = new THREE.AxesHelper();
   // text.add(axesHelper);
-  // scene.add(text);
+  scene.add(text);
 });
 
 // Add torus'
