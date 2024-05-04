@@ -41,7 +41,7 @@ const fontLoader = new FontLoader();
 fontLoader.load(typefaceFont, (font) => {
   const bevelSize = 0.02;
   const bevelThickness = 0.03;
-  const textGeometry = new TextGeometry("Kave", {
+  const textGeometry = new TextGeometry("PoR-Roo", {
     font: font,
     size: 0.5,
     height: 0.2,
