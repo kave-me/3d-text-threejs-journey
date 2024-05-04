@@ -145,7 +145,7 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  camera.position.x = Math.sin(elapsedTime) * 0.001;
+  camera.position.x += Math.sin(elapsedTime) * 0.001;
   camera.position.z += Math.cos(elapsedTime) * 0.001;
   // Update controls
   controls.update();
