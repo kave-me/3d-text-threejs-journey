@@ -68,23 +68,24 @@ fontLoader.load(typefaceFont, (font) => {
 // Add torus'
 const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
 const donutMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
+const donuts = [];
 for (let i = 0; i < 100; i++) {
-  const donut = new THREE.Mesh(donutGeometry, donutMaterial);
+  donuts[i] = new THREE.Mesh(donutGeometry, donutMaterial);
 
   //   position:
-  donut.position.x = (Math.random() - 0.5) * 10;
-  donut.position.y = (Math.random() - 0.5) * 10;
-  donut.position.z = (Math.random() - 0.5) * 10;
+  donuts[i].position.x = (Math.random() - 0.5) * 10;
+  donuts[i].position.y = (Math.random() - 0.5) * 10;
+  donuts[i].position.z = (Math.random() - 0.5) * 10;
 
   //   rotation:
-  donut.rotation.x = Math.random() * Math.PI;
-  donut.rotation.y = Math.random() * Math.PI;
+  donuts[i].rotation.x = Math.random() * Math.PI;
+  donuts[i].rotation.y = Math.random() * Math.PI;
 
   //   scale:
   const scale = Math.random();
-  donut.scale.set(scale, scale, scale);
+  donuts[i].scale.set(scale, scale, scale);
 
-  scene.add(donut);
+  scene.add(donuts[i]);
 }
 
 /**
@@ -121,7 +122,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.x = 1;
 camera.position.y = 1;
-camera.position.z = 2;
+camera.position.z = 4;
 scene.add(camera);
 
 // Controls
@@ -149,6 +150,12 @@ const tick = () => {
   camera.position.z += Math.cos(elapsedTime) * 0.001;
   // Update controls
   controls.update();
+
+  // rotate donuts
+  donuts.forEach((donut) => {
+    donut.rotation.x += Math.random() * elapsedTime * 0.0001;
+    donut.rotation.y += Math.random() * elapsedTime * 0.0001;
+  });
 
   // Render
   renderer.render(scene, camera);
